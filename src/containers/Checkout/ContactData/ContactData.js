@@ -97,7 +97,7 @@ class ContactData extends Component {
     formIsValid: false
   };
 
-  orderHandler = (event, token) => {
+  orderHandler = event => {
     event.preventDefault();
 
     const formData = {};
@@ -113,7 +113,7 @@ class ContactData extends Component {
       userId: this.props.userId
     };
 
-    this.props.onOrderBurger(order, token);
+    this.props.onOrderBurger(order, this.props.token);
   };
 
   checkValidity(value, rules) {
