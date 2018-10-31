@@ -14,6 +14,7 @@ class App extends Component {
   componentDidMount() {
     this.props.onTryAutoSignup();
   }
+
   render() {
     let routes = (
       <Switch>
@@ -22,6 +23,7 @@ class App extends Component {
         <Redirect to="/" />
       </Switch>
     );
+
     if (this.props.isAuthenticated) {
       routes = (
         <Switch>
@@ -33,6 +35,7 @@ class App extends Component {
         </Switch>
       );
     }
+
     return (
       <div>
         <Layout>{routes}</Layout>

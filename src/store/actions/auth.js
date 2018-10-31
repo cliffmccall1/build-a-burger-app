@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import * as actionTypes from './actionTypes';
 
 export const authStart = () => {
@@ -26,7 +27,6 @@ export const logout = () => {
   localStorage.removeItem('token');
   localStorage.removeItem('expirationDate');
   localStorage.removeItem('userId');
-
   return {
     type: actionTypes.AUTH_LOGOUT
   };
@@ -68,7 +68,6 @@ export const auth = (email, password, isSignup) => {
         dispatch(checkAuthTimeout(response.data.expiresIn));
       })
       .catch(err => {
-        console.log(err);
         dispatch(authFail(err.response.data.error));
       });
   };
